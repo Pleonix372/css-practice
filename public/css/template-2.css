@@ -45,7 +45,7 @@
   display: block;
 }
 
-.nav_inlane > .nav_link:not(:last-child) {
+.nav_inline > .nav_link:not(:last-child) {
   margin-right: 24px;
 }
 
