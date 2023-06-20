@@ -1,9 +1,9 @@
 <header class="page_block">
     <div class="header">
 
-        <a href="#test">
+        <div class="">
             {{> logo}}
-        </a>
+        </div>
 
         <nav class="header_nav">
             <div class="header_nav_right">
@@ -20,33 +20,9 @@
         <p class="hero_text">{{text}}</p>
     </div>
 
-    <div class="hero_slider">
-        <div class="hero_slider_icon hero_slider_left">{{left}}</div>
-        <img src="{{photo}}" alt="Hero image" class="hero_image">
-        <div class="hero_slider_icon hero_slider_right">{{right}}</div>
-    </div>
+    <img src="{{photo}}" alt="Hero image" class="hero_image">
 </div>
 {{/with}}
-
-<input type="text" class="input">
-
-<div class="modal">
-    {{hero.text}} {{hero.text}}
-    {{!-- <img src="{{hero.photo}}" alt="Hero image" class="modal_image"> --}}
-    <div class="modal_text">{{hero.text}} {{hero.text}}</div>
-</div>
-
-<main class="blog">
-    {{#each blog}}
-    {{> cardBlock data=this}}
-    {{/each}}
-</main>
-
-<main class="blog">
-    {{#each blog}}
-    {{> cardBlock data=this}}
-    {{/each}}
-</main>
 
 <main class="blog">
     {{#each blog}}
@@ -66,7 +42,7 @@
 </div>
 {{/with}}
 
-<footer class="footer" id="test">
+<footer class="footer">
     <div>
         {{> logo}}
         <span class="footer_copyright">Copyright 2023-2024</span>
