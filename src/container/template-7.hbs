@@ -1,0 +1,79 @@
+<header class="page_block">
+
+    {{#with header}}
+    <div class="header">
+
+        <a href="#test">
+            <div class="logo">
+                <span class="badge text-bg-primary">{{brandName}}</span>
+            </div>
+        </a>
+
+        <nav class="header_nav">
+            <div class="header_nav_right">
+
+                {{> nav list=links}}
+
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="ad">
+        {{#with ad}}
+        <div class="logo_ad">
+            <span class="badge text-bg-primary">Ad</span>
+        </div>
+        {{text}}
+        {{/with}}
+        <span class="user">Users online: {{userOnline}}</span>
+    </div>
+    {{/with}}
+
+</header>
+
+<div class="hero">
+    {{#with hero}}
+    <h1 class="hero_title">{{title}}</h1>
+    <p class="hero_text">{{description}}</p>
+    <a href="button.url" class="hero_button">{{button.text}}</a>
+    {{/with}}
+</div>
+
+<div class="about">
+    {{#with about}}
+    <h1 class="about_title">{{heading}}</h1>
+    <p class="about_text">{{info}}</p>
+    {{/with}}
+</div>
+
+
+<div>
+    <div class="articles_title">Our articles
+        <a href="#" class="articles_button">View All</a>
+    </div>
+    <div class="articles">
+        {{#each articles}}
+        <div class="articles_content">
+            <img src="{{photo}}" alt="image" class="articles_image">
+            <div class="articles_name">{{name}}</div>
+            <p class="articles_text">{{description}}</p>
+            <a href="#" class="articles_btn">Read All</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<footer class="footer" id="test">
+    {{#with footer}}
+    <div class="footer_link">
+        {{#each pages}}
+        <a href="{{path}}" class="nav_link">{{name}}</a>
+        {{/each}}
+    </div>
+    {{/with}}
+
+    <div>
+        <span class="footer_copyright">Copyright 2023-2024</span>
+    </div>
+</footer>
