@@ -1,0 +1,476 @@
+@layer normalize, component, variant, main, adaptive;
+
+@font-face {
+  font-family: 'HelveticaNeueBold';
+  src: url('/font/HelveticaNeueBold.ttf');
+}
+
+@layer component {
+  .button {
+    text-decoration: none;
+    color: var(--color-black);
+    padding: var(--spacing-16);
+    border-radius: var(--radius-4);
+    text-align: center;
+    border: 1px solid transparent;
+  }
+
+  .click {
+    transition: opacity var(--transition-1);
+  }
+
+  .click:hover {
+    opacity: var(--opacity-1);
+    cursor: pointer;
+  }
+
+  .click:active {
+    opacity: var(--opacity-2);
+  }
+
+  .page_section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .icon {
+    display: block;
+    height: 48px;
+    width: 48px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .double_line {
+    line-height: var(--line-height);
+  }
+}
+
+@layer variant {
+  .button_primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+  }
+
+  .button_secondary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    border-width: 2px;
+  }
+
+  .page_section_light {
+    background-color: var(--color-light);
+  }
+
+  .feat_icon {
+    height: 48px;
+    width: 48px;
+  }
+
+  .icon_arrow {
+    height: 14px;
+    width: 24px;
+    background-image: url('/svg/arrow-right.svg');
+  }
+}
+
+body {
+  font-family: 'HelveticaNeueBold', sans-serif;
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000;
+  --color-primary: #611f69;
+  --color-light: #f4ede4;
+
+  --page-width-big: 1260px;
+  --page-width-medium: 1000px;
+  --page-width-small: 700px;
+
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-36: 36px;
+
+  --size-14: 14px;
+  --size-18: 18px;
+  --size-22: 22px;
+  --size-26: 26px;
+  --size-30: 30px;
+  --size-34: 34px;
+
+  --radius-4: 4px;
+
+  --opacity-1: 0.7;
+  --opacity-2: 0.3;
+
+  --transition-1: 0.7s;
+
+  --line-height: 1.5em;
+}
+
+@layer main {
+  .page {
+    display: grid;
+  }
+
+  .page_content {
+    width: 100%;
+
+    padding: var(--spacing-16);
+  }
+
+  .hero_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 200px;
+    position: relative;
+
+    height: 60vh;
+    min-height: 600px;
+  }
+
+  .hero {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .hero_content {
+    display: grid;
+    gap: var(--spacing-24);
+    max-width: 425px;
+    color: var(--color-black);
+    position: relative;
+  }
+
+  .brands {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: var(--spacing-36);
+    row-gap: var(--spacing-20);
+    flex-wrap: wrap;
+  }
+
+  .hero_image {
+    position: absolute;
+    left: 580px;
+    top: 0;
+  }
+
+  .hero_label {
+    font-size: var(--size-14);
+  }
+
+  .hero_title {
+    font-size: 50px;
+  }
+
+  .hero_info {
+    font-size: var(--size-18);
+  }
+
+  .hero_buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-24);
+  }
+
+  .features_section {
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    display: grid;
+    gap: var(--spacing-24);
+
+    background-image: url('/img/features.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+
+  .features_title {
+    font-size: var(--size-34);
+  }
+
+  .features_description {
+    font-size: var(--size-18);
+    max-width: 520px;
+  }
+
+  .feat_card {
+    padding: var(--spacing-16);
+    background-color: var(--color-white);
+    display: grid;
+    gap: var(--spacing-16);
+
+    font-size: var(--size-18);
+
+    grid-template-rows: min-content min-content 1fr min-content;
+  }
+
+  .feat_link {
+    justify-self: flex-end;
+  }
+
+  .features_grid_4 {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: var(--spacing-16);
+  }
+
+  .features_grid_4 > .feat_card:first-of-type {
+    grid-row: 1 / 3;
+  }
+}
+
+@layer adaptive {
+  @media all and (1260px <= width) {
+    .page_content {
+      width: 100%;
+      max-width: var(--page-width-big);
+    }
+  }
+
+  @media all and (1000px <= width < 1260px) {
+    .page_content {
+      width: 100%;
+      max-width: var(--page-width-medium);
+    }
+
+    .hero_image {
+      left: 510px;
+      height: 300px;
+    }
+
+    .advantages {
+      padding-left: 500px;
+    }
+  }
+
+  @media all and (width < 1000px) {
+    .page_content {
+      width: 100%;
+      max-width: var(--page-width-small);
+    }
+
+    .hero_image {
+      position: static;
+      width: 100%;
+      order: -1;
+    }
+
+    .hero_content {
+      max-width: 100%;
+    }
+
+    .features_grid_4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .features_grid_4 > .feat_card:first-of-type {
+      grid-row: 1 / 3;
+    }
+
+    .features_section {
+      background: none;
+    }
+
+    .advantages_content {
+      background: none;
+    }
+
+    .advantages_grid_content {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .delivero {
+      background: none;
+      align-items: center;
+    }
+
+    .working_cards {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media all and (width < 600px) {
+    .features_grid_4 {
+      grid-template-columns: 2fr 2fr;
+    }
+
+    .advantages_grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (width < 400px) {
+    .features_grid_4 {
+      grid-template-columns: 1fr;
+    }
+
+    .hero_buttons {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-12);
+    }
+
+    .advantages_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@layer main {
+  .advantages_content {
+    background-image: url('/img/advantages.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding-bottom: 150px;
+  }
+
+  .advantages {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-36);
+  }
+
+  .advantages_text {
+    max-width: 600px;
+    width: 100%;
+    padding-right: 65px;
+
+    display: grid;
+    gap: var(--spacing-16);
+    margin-top: 60px;
+  }
+
+  .advantages_title {
+    font-size: var(--size-34);
+  }
+
+  .advantages_discription {
+    font-size: var(--size-18);
+  }
+
+  .advantages_grid_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 80px;
+  }
+
+  .advantages_grid {
+    grid-column: 2 / 6;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: var(--spacing-16);
+  }
+
+  .advantages_grid > .feat_card:first-of-type,
+  .advantages_grid > .feat_card:nth-of-type(2) {
+    grid-row: 1 / 3;
+  }
+
+  .delivero {
+    margin-top: 72px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    background-image: url('/img/deliveroo.png');
+    background-repeat: no-repeat;
+    background-position: left;
+
+    padding: var(--size-14);
+  }
+
+  .delivero_content {
+    width: 100%;
+    max-width: var(--page-width-medium);
+  }
+
+  .delivero_text {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    gap: var(--spacing-24);
+  }
+
+  .delivero_description {
+    line-height: var(--line-height);
+    font-size: var(--size-26);
+  }
+
+  .delivero_copyright {
+    font-size: var(--size-14);
+  }
+
+  .deliveroo_brand {
+    width: 148px;
+    height: 40;
+  }
+
+  .working {
+    margin-top: 150px;
+    margin-bottom: 80px;
+    padding: var(--size-14);
+  }
+
+  .working_title {
+    font-size: var(--size-30);
+    display: flex;
+    justify-content: center;
+  }
+
+  .working_cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 76px;
+    padding-top: 76px;
+  }
+
+  .work_card {
+    box-shadow: 1px #454245;
+    background-color: #d1cbd1;
+  }
+
+  .work_card_description {
+    padding: var(--spacing-12);
+    font-size: var(--size-14);
+    color: #454245;
+  }
+
+  .work_card_title {
+    padding-left: var(--spacing-12);
+    max-width: 250px;
+    font-size: var(--size-26);
+    line-height: var(--line-height);
+    min-height: 160px;
+  }
+
+  .work_link {
+    padding: var(--spacing-12);
+    color: #1264a3;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+  }
+}
